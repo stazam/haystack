@@ -70,9 +70,9 @@ class LanguageClassifier(BaseComponent):
 
         try:
             language = self.custom_languages.index(self._get_language(documents[0]))
-            return output, f"output_{language + 1}"
         except ValueError:
             raise Valuerror("You are not using document with language from custom_languages")
+        return output, f"output_{language + 1}"
 
     def run_batch(self, documents: List[Document]):
         self.run(documents=documents)
